@@ -1,0 +1,26 @@
+O(n) space as using hashSet that stores at most n elements
+O(n) time as we traverse the array containing n elements only once. Each lookup in the map costs only O(1)
+
+class Solution {
+    public int[] twoSum(int[] nums, int target) {
+        
+        if(nums.length == 0 || target == -1){
+            throw new IllegalArgumentException("No two sum solution exists");        
+        
+        }
+        
+        HashMap<Integer, Integer> map = new HashMap<Integer, Integer>();
+        
+        for(int i = 0; i < nums.length; i++)
+        {
+            int diff = target - nums[i];
+            if(map.containsKey(diff))
+            {
+                return new int[]{map.get(diff), i};                
+            }
+            map.put(nums[i], i);
+        }
+        
+        throw new IllegalArgumentException("No two sum solution exists");        
+    }
+}
