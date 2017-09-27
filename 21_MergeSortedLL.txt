@@ -1,0 +1,50 @@
+O(m + n)
+
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode(int x) { val = x; }
+ * }
+ */
+class Solution {
+    public ListNode mergeTwoLists(ListNode l1, ListNode l2) {
+        
+        if(l1 == null && l2 == null)
+        {
+            return l1;
+        }
+        ListNode head = new ListNode(0);
+        ListNode l = head;
+        
+        ListNode curr1 = l1;
+        ListNode curr2 = l2;
+        
+        while(curr1 != null && curr2 != null)
+        {
+            if(curr1.val < curr2.val)
+            {
+                l.next = curr1;
+                curr1 = curr1.next;
+            }
+            else{
+                l.next = curr2;
+                curr2 = curr2.next;
+            }
+            l = l.next;
+        }
+        
+        if(curr1 != null)
+        {
+            l.next = curr1;
+        }
+        
+        if(curr2 != null)
+        {
+            l.next = curr2;
+        }
+        return head.next;
+        
+    }
+}

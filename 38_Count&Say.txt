@@ -1,0 +1,42 @@
+O(n ^ n), since we have to at least generate every solution from n = 1 to n = n, which is O(n) for each case.
+
+O(n ^ len of previous output)
+
+class Solution {
+    public String countAndSay(int n) {
+        
+        if(n <= 0)
+        {
+            return "-1";
+        }
+        
+        String result = "1";
+        
+        for(int i = 1; i < n; i++)
+        {
+            result = count(result);    
+        }
+        return result;
+    }
+    
+    public String count(String result)
+    {
+        StringBuilder sb = new StringBuilder();
+        int p = 0;
+        
+        while(p < result.length())
+        {
+            char c = result.charAt(p);
+            int count = 0;
+            
+            while(p < result.length() && c == result.charAt(p))
+            {
+                p++;
+                count++;
+            }
+            sb.append(String.valueOf(count));
+            sb.append(c);
+        }
+        return sb.toString();
+    }
+}

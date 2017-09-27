@@ -1,0 +1,37 @@
+
+
+
+
+// Not good for large inputs
+class Solution {
+    public int strStr(String haystack, String needle) {
+        
+        if(haystack == null || needle == null || haystack == "" || needle == "" || haystack.length() < needle.length())
+        {
+            return -1;
+        }       
+        
+        int i  = 0, j = 0;
+        while(i < haystack.length() && j < needle.length())
+        {
+              if(needle.charAt(j) == haystack.charAt(i))
+              {
+                  i++;
+                  j++;
+              }
+              else if(j != 0)
+              {
+                  j = 0;
+                  i--;
+              }
+              else{
+                  i++;
+              }
+        }
+        if(j == needle.length())
+        {
+            return i - j;
+        }
+        return -1;
+    }         
+}
