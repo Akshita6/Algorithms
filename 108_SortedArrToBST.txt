@@ -1,0 +1,40 @@
+O(n)
+
+T(n) = 2T(n/2) + C
+  T(n) -->  Time taken for an array of size n
+   C   -->  Constant (Finding middle of array and linking root to left 
+                      and right subtrees take constant time)
+
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode(int x) { val = x; }
+ * }
+ */
+class Solution {
+    public TreeNode sortedArrayToBST(int[] nums) {
+        
+        if(nums == null || nums.length == 0)
+        {
+            return null;
+        }
+        
+        return sortedArrayToBST(0, nums.length - 1, nums);
+    }
+    
+    public TreeNode sortedArrayToBST(int start, int end, int []nums) {
+        
+        if(start > end)
+            return null; 
+        
+        int mid = start + (end - start) / 2;
+        TreeNode root = new TreeNode(nums[mid]);
+        root.left = sortedArrayToBST(start, mid - 1, nums);
+        root.right = sortedArrayToBST(mid + 1, end, nums);
+        
+        return root;
+    }
+}
