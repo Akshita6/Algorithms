@@ -1,0 +1,47 @@
+Time: O(n2)
+Space: O(1)
+
+class Solution {
+    public String longestPalindrome(String s) {
+
+        if(s == null || s.length() == 0)
+        {
+            return null;
+        }
+
+        if(s.length() == 1)
+        {
+            return s;
+        }
+
+        String longest = s.substring(0, 1);
+
+        for(int i = 0; i < s.length(); i++)
+        {
+            String temp = checkPalindrome(s, i, i);
+            if(temp.length() > longest.length())
+            {
+                longest = temp;
+            }
+
+            temp = checkPalindrome(s, i, i + 1);
+            if(temp.length() > longest.length())
+            {
+                longest = temp;
+            }
+        }
+        return longest;
+    }
+
+    public String checkPalindrome(String in, int s, int e)
+    {
+        while(s >= 0 && e <= in.length() - 1 && in.charAt(s) == in.charAt(e))
+        {
+            s--;
+            e++;
+        }
+        return in.substring(s + 1, e);
+    }
+
+
+}
