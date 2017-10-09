@@ -22,7 +22,7 @@ public class Solution {
     }
 }
 
-We first intitialize result to 0. We then iterate from
+We first initialize result to 0. We then iterate from
 0 to 31 (an integer has 32 bits). In each iteration:
 We first shift result to the left by 1 bit.
 Then, if the last digit of input n is 1, we add 1 to result. To
