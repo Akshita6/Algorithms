@@ -1,5 +1,6 @@
 // O(1) space
 // O(n) time
+// Right Rotate array
 
 class Solution {
     public void rotate(int[] nums, int k) {
