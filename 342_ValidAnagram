@@ -1,0 +1,38 @@
+class Solution {
+    public boolean isAnagram(String s, String t) {
+
+        if((s == null && t == null) || (s.isEmpty() && t.isEmpty()))
+        {
+            return true;
+        }
+
+        if(s == null || t == null || s.length() != t.length())
+        {
+            return false;
+        }
+
+        int []count = new int[26];
+
+        for(Character c : s.toCharArray())
+        {
+            count[c - 'a']++;
+        }
+
+        for(Character c : t.toCharArray())
+        {
+            count[c - 'a']--;
+            if(count[c - 'a'] < 0)
+            {
+                return false;
+            }
+        }
+        for(Integer i : count )
+        {
+            if(i != 0)
+            {
+                return false;
+            }
+        }
+        return true;
+    }
+}

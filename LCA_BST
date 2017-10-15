@@ -1,0 +1,20 @@
+// LCA of BST
+
+
+public Node LCA_BST(Node root, Node p, Node q)
+{
+  if(root == null)
+  {
+    return null;
+  }
+
+  if(root.val > p.val && root.val > q.val)
+  {
+    return LCA_BST(root.left, p, q);
+  }
+  if(root.val < p.val && root.val < q.val)
+  {
+    return LCA_BST(root.right, p, q);
+  }
+  return root;
+}

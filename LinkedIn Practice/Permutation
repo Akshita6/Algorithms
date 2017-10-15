@@ -1,0 +1,33 @@
+class sample{
+
+    public void permute(String s, int start, int len)
+    {
+        if(start == len)
+        {
+            System.out.println(s);
+        }
+
+        for(int i = start; i <= len; i++)
+        {
+            s = swap(s, start, i);
+            permute(s, start + 1, len);
+            s = swap(s, start, i);
+        }
+    }
+
+    public String swap(String s, int i, int j)
+    {
+        char []ch = s.toCharArray();
+        char tmp = ch[i];
+        ch[i] = ch[j];
+        ch[j] = tmp;
+        return String.valueOf(ch);
+    }
+
+    public static void main(String []args)
+    {
+        sample s = new sample();
+        String st = "abc";
+        s.permute(st, 0, st.length() - 1);
+    }
+}

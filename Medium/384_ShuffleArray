@@ -1,0 +1,39 @@
+import java.util.Random;
+
+class Solution {
+
+    int []arr;
+    int []original;
+    Random rand;
+    public Solution(int[] nums) {
+        original = nums;
+        arr = Arrays.copyOf(nums, nums.length);
+        rand = new Random();
+    }
+
+    /** Resets the array to its original configuration and return it. */
+    public int[] reset() {
+        return original;
+    }
+
+    /** Returns a random shuffling of the array. */
+    public int[] shuffle() {
+
+        for(int i = arr.length - 1; i > 0; i--)
+        {
+            int j = rand.nextInt(i + 1);
+
+            int temp = arr[i];
+            arr[i] = arr[j];
+            arr[j] = temp;
+        }
+        return arr;
+    }
+}
+
+/**
+ * Your Solution object will be instantiated and called as such:
+ * Solution obj = new Solution(nums);
+ * int[] param_1 = obj.reset();
+ * int[] param_2 = obj.shuffle();
+ */
