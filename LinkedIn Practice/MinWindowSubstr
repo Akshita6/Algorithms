@@ -1,0 +1,45 @@
+public string minWindow(String s, String t)
+{
+  int []arr = new int[128];
+
+  for(char c : t.toCharArray())
+  {
+    arr[c]++;
+  }
+  int counter = t.length();
+  int begin = 0, end = 0, head = 0;
+  int min = Integer.MAX_VALUE;
+
+  while(end < s.length())
+  {
+    if(arr[s.charAt(end++)]-- > 0) // decrement the occurrane counter of that char by 1 as well 
+    {
+      counter--;
+    }
+    while(counter == 0)
+    {
+      if(end - begin < min)
+      {
+        min = end - (head = begin);
+      }
+      if(arr[s.charAt(begin++)]++ == 0)
+      {
+        counter++;
+      }
+    }
+  }
+  return min == Integer.MAX_VALUE ? "" : s.substring(head, head + min);
+}
+string minWindow(string s, string t) {
+        vector<int> map(128,0);
+        for(auto c: t) map[c]++;
+        int counter=t.size(), begin=0, end=0, d=INT_MAX, head=0;
+        while(end<s.size()){
+            if(map[s[end++]]-->0) counter--; //in t
+            while(counter==0){ //valid
+                if(end-begin<d)  d=end-(head=begin);
+                if(map[s[begin++]]++==0) counter++;  //make it invalid
+            }
+        }
+        return d==INT_MAX? "":s.substr(head, d);
+    }

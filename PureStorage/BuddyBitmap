@@ -1,0 +1,97 @@
+//Buddy Bitmap
+
+n - 1 = level
+bitMap[n][(int)Math.pow(2, n - 1)]
+
+public void setBits(int offset, int len)
+{
+  if(offset < 0 && (offset + len > numNodesLastLevel))
+  {
+    return;
+  }
+  setBitsHelper(level, offset, offset + len - 1);
+}
+
+public void setBitsHelper(int level, int start, int end)
+{
+  if(start > end)
+  {
+    return;
+  }
+
+  setBitsToOne(level, start, end);
+
+  if(start & 1 == 1)
+  {
+    start--;
+  }
+  if(end & 1 == 0)
+  {
+   end++;
+  }
+
+  int newStart = Integer.MAX_VALUE;
+  for(int i = start; i < end; i+=2)
+  {
+    if(bitMap[level][i] == 1 && bitMap[level][i + 1] == 1)
+    {
+      newStart = i / 2;
+      break;
+    }
+  }
+
+  int newEnd = Integer.MIN_VALUE;
+  for(int i = end; i > start; i-=2)
+  {
+    if(bitMap[level][i] == 1 && bitMap[level][i - 1] == 1)
+    {
+      newEnd = i / 2;
+      break;
+    }
+  }
+  setBits(level - 1, newStart, newEnd);
+}
+
+public void setBitsToOne(int level, int start, int end)
+{
+  for(int i = start; i <= end; i++)
+  {
+    bitMap[level][i] = 1;
+  }
+}
+
+public void clearBits(int offset, int len)
+{
+  if(offset < 0 || offset + len > numNodesLastLevel)
+  {
+    return;
+  }
+  clearBitHelper(n - 1, offset, offset + len - 1);
+}
+
+public void clearBitHelper(int level, int start, int end)
+{
+  if(level < 0 || start > end)
+  {
+    return;
+  }
+  boolean containsOne = setBitsToZero(level, start, end);
+
+  if(containsZero)
+  {
+    clearBitHelper(level - 1, start / 2, end / 2);
+  }
+}
+
+public boolean setBitsToZero(int level, int start, int end)
+{
+  for(int i = start, i <= end; i++)
+  {
+    if(bitMap[level][i] == 1)
+    {
+      containsOne = true;
+    }
+    bitMap[level][i] = 0;
+  }
+  return containsOne;
+}

@@ -1,3 +1,11 @@
+Complexity: O(n*n!) as there are n! permutations and each takes n time
+
+/*
+We fix each letter at first position at level 1, then at level 2, we fix 2nd characters and so on. and swap the forward remaining chars
+as its a tree so we keep moving down
+when we fix n - 1 char, nth letter is automatically fixed. backtracking
+
+*/
 class sample{
 
     public void permute(String s, int start, int len)
