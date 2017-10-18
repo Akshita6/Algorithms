@@ -1,0 +1,32 @@
+class Solution {
+    public boolean isHappy(int n) {
+
+        if(n == 0 || n == 1)
+        {
+            return true;
+        }
+        HashSet<Integer> set = new HashSet<>();
+        while(set.add(n))
+        {
+            int sum1 = sqSumDigits(n);
+            if(sum1 == 1)
+            {
+                return true;
+            }
+            n = sum1;
+        }
+        return false;
+    }
+
+    public int sqSumDigits(int n)
+    {
+        int sum = 0;
+        while(n != 0)
+        {
+            int rem = n % 10;
+            sum += rem * rem;
+            n = n / 10;
+        }
+        return sum;
+    }
+}

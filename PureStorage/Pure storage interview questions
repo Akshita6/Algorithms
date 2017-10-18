@@ -1,0 +1,38 @@
+Thready concurrency,
+implement an all op O(1) set, can't remember the others.
+How to reverse a long string
+Reverse a linked list.
+LCA and version of inorder tree traversal
+calculate the count the palindrome just like the problem on hackrank
+Happy number, how to check if a given number is happy number and prove your solution
+Sort an array of Strings in lexicographic order.
+variant of 3-sum,
+Easy ques on variant of quicksort partition
+Skyline problem
+Write a program to draw a circle/round using pixel bits. (given a function to turn on an individual pixel).  )
+design buy sell stock
+Given an multi-threaded implementation of a stack, find the bugs in the code and complete the code for the pop operation.
+Giving a multi-thread stack java program, ask you to mark when should use lock or unlock and also ask you to throw a runtime exception when some one want to pop an element from the stack but the stack is empty.
+,memory leaks
+
+How to implement mutex using spinlocks and flags.
+Locking and Synchronization between threads
+Layout of a C++ class with inheritance (multiple inheritence). Design an event handler. event handler
+ deadlock and memory corruption
+ synchronisation. give your a system. You need to use lock to keep consistency and avoid deadlock.
+ and test some knowledge about thread and locks
+concurrent programming, critical sections, and reentrancy
+Given data structure design of a large storage system, choose the best ones?
+
+Given implementation of a concurrent container, choose the issues the code has?
+And also indepth knowledge of how things work at the computer memory level.
+Ex : virtual functions implemented in memory, arrays or linked list implementation of Stack, which is better with respect to memory. when would you use what.
+The first question is asking about memory layout of multi-inheritance virtual functions. what if we do not use virtual pointer when compile inheritance class. What if we swap the datamembers in base class and sub-classes.
+Virtual functions and memory layout for a given class. design a feasible memory layout to implement the C++ virtual function
+How is a object with virtual function stored in the memory
+
+
+grammar implementation
+Create a model that allows you to determine when a product will fail based on historical data- minheap based on data that tells you
+what gives profit and what not.
+ Why purestorage

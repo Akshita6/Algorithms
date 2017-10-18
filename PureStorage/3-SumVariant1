@@ -1,0 +1,23 @@
+// 3- sum variant where have to find a sum of three elements in 3 diff arrays= sum
+
+public List<List<Integer>> 3SumVariant(int a1[], int a2[], int a3[], int sum)
+{
+  HashSet<Integer> set = new HashSet<>();
+
+  for(int i = 0; i < a1.length; i++)
+  {
+    set.add(a1[i]);
+  }
+
+  for(int i = 0; i < a2.length; i++)
+  {
+    for(int j = 0; j < a3.length; j++)
+    {
+      if(set.contains(sum - (a2[i] + a3[j])))
+      {
+        result.add(Arrays.asList(sum, a2[i], a3[i]));
+      }
+    }
+  }
+  return result;
+}
