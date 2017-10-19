@@ -1,0 +1,58 @@
+// People are sitting in a theater row and you're an usher.
+//
+// Given a row of seats that either occupied (1) or unoccupied (0) and the condition
+// that new people being seated do not like to sit next to anyone else, implement the
+// function that determines whether you can or cannot seat a number of people in the row.
+//
+//
+
+//    4 => false
+// 1,0,[0,0,0,0,0],0,0]
+public boolean canSeat(int []seats, int numPpl)
+{
+    if(seats == null || seats.length == 0)
+    {
+        return false;
+    }
+    int countEmptySeats = 0;
+    for(int i = 0; i < seats.length; i++)
+    {
+        if(seats[i] == 0)
+        {
+            countEmptySeats++;
+        }
+
+    }
+    if(countEmptySeats == seats.length - 1)
+    {
+        if(numPpl <= Math.ceil(countEmptySeats / 2))
+        {
+            return true;
+        }
+    }
+
+    for(int i = 0; i < seats.length; i++)
+    {
+        if(seats[i] == 0)
+        {
+            if(((i - 1) >= 0 && (i + 1) < seats.length && seats[i - 1] == 0 && seats[i + 1] == 0) ||
+                                (i == seats.length - 1 && seats[i - 1] == 0) ||
+                                (i == 0 && seats[i + 1] == 0))
+            {
+                if(numPpl == 0)
+                {
+                    break;
+                }
+                numPpl--;
+                seats[i] = 1;
+            }
+        }
+    }
+
+    if(numPpl == 0)
+    {
+        return true;
+    }
+    return false;
+
+}

@@ -10,15 +10,15 @@ variant of 3-sum,
 Easy ques on variant of quicksort partition
 Skyline problem
 Write a program to draw a circle/round using pixel bits. (given a function to turn on an individual pixel).  )
-design buy sell stock
 Given an multi-threaded implementation of a stack, find the bugs in the code and complete the code for the pop operation.
 Giving a multi-thread stack java program, ask you to mark when should use lock or unlock and also ask you to throw a runtime exception when some one want to pop an element from the stack but the stack is empty.
 ,memory leaks
-
+deadlock and memory corruption
+Layout of a C++ class with inheritance (multiple inheritence). Design an event handler. event handler
 How to implement mutex using spinlocks and flags.
 Locking and Synchronization between threads
-Layout of a C++ class with inheritance (multiple inheritence). Design an event handler. event handler
- deadlock and memory corruption
+
+
  synchronisation. give your a system. You need to use lock to keep consistency and avoid deadlock.
  and test some knowledge about thread and locks
 concurrent programming, critical sections, and reentrancy
