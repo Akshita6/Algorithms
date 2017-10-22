@@ -1,0 +1,27 @@
+public boolean isPermutationAnagram(String s)
+{
+  // null checks
+
+  s = s.toLowerCase().replaceAll("[^A-Za-z0-9]", "");
+
+  int count[] = new int[26];
+  int oddCount = 0;
+
+  for(Character c : s.toCharArray())
+  {
+    count[c - 'a']++;
+  }
+
+  for(int i = 0; i < s.length(); i++)
+  {
+    if(count[s.charAt(i) - 'a'] % 2 > 0)
+    {
+      oddCount++;
+    }
+    if(oddCount > 1)
+    {
+      return false;
+    }
+  }
+  return true;
+}

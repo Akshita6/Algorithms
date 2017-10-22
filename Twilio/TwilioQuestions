@@ -1,0 +1,36 @@
+Given a word and a dictionary, find the anagrams that exist in the dictionary.
+Simple coding challenge for a dice game
+String abbreviation apple-> a3e
+convert unsorted array to BST
+find intersection between two String Lists.
+LRU
+HashMap: how to make a Hashmap thread safe, what to do in case of collision.
+Given a hash map implemented as an array of linked lists, how would you make it concurrently accessible?
+fizzbuzz
+
+queue implementation using linked list using generics
+reverse a string
+MVC, Denormalization
+the similarities between UDP and TCP?
+quick or merge
+Tell me about Restful API. Design a RESTful interface for this connected graph data storage system.
+How does the internet work. What will happen if you input "www.twilio.com" in the browser and hit enter
+Design multi-tenant database schema for shopping system with three distinct stores
+
+write a class in a language of your choice that prints a message. Write another class that is a subclass. Instantiate it.
+
+what is and the usage of Singleton pattern,
+java synchronized keyword.
+At the end is an coding problem to determine if a ransom letter can be composed using a magazine
+
+
+Build an API for a shopping cart
+implement a function called tripleRotate, which "rotates" all subsequent sets of 3 elements in an array, when the algorithm
+for one rotation is as follows:
+
+Given the triplet ['a', 'b', 'c'], the 1st element ('a') is moved to index 1, the 2nd element ('b') is moved to index 2 and the
+3rd element ('c') is moved to index 0. Thus, one rotation of the given triplet results in the new array ['c', 'a', 'b'].
+
+Explain how running multiple tasks on a single processor core works.
+What are the runtime complexities for reads and inserts on arrays, hash maps and linked lists? What are the best and worst
+case scenarios for each? When would you use one over the others?

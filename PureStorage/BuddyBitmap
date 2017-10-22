@@ -77,7 +77,7 @@ public void clearBitHelper(int level, int start, int end)
   }
   boolean containsOne = setBitsToZero(level, start, end);
 
-  if(containsZero)
+  if(containsOne)
   {
     clearBitHelper(level - 1, start / 2, end / 2);
   }
@@ -85,6 +85,7 @@ public void clearBitHelper(int level, int start, int end)
 
 public boolean setBitsToZero(int level, int start, int end)
 {
+boolean containsOne = false;
   for(int i = start, i <= end; i++)
   {
     if(bitMap[level][i] == 1)

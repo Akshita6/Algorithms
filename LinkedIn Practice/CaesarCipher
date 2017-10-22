@@ -4,6 +4,11 @@ import java.text.*;
 import java.math.*;
 import java.util.regex.*;
 
+//((letter - 'A' + n) % 26) + 'A'
+And to decode:
+
+//((letter - 'A' + 26 - n) % 26) + 'A'
+
 public class Solution {
 
     public static String encryptString(String s, int n, int k)

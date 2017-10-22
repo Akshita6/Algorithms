@@ -1,0 +1,25 @@
+More on how you deploy application
+antivirus functioning
+
+Coding questions:
+String Compression problem ,
+producer-consumer problem,
+readers-writers problem,
+check valid BST, improvise on the same problem with iterative tree traversal provided parent pointers in struct definition
+using O(1) extra space,
+implement strstr(),
+implement a simple regex matcher supporting '?' and '*' wildcards
+Give a brief description of each data structure (linked list, array, hash table)
+How many optimization levels in GCC?
+What signal is thrown when/how many different signals are there/what are they?
+How many types of sockets are there?
+Compression Algorithm, Bitmask Questions, semaphore implementation
+
+Other questions include OS and Networking basics,
+difference between TCP/UDP and when to use them,
+TCP flow and congestion control algorithm (how TCP reacts to a certain scenario),
+HTTP header contents,
+What is DNS and its response types, What happens when you enter a URL in web browser,
+mutexes and critical section, draw stack and contents of a given C program,
+how to efficiently serialize and deserialize a tree using a database table
+(basically asked me to draw the fields of the SQL table and describe the process)
