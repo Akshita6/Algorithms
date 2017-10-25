@@ -1,0 +1,62 @@
+//expression tree: compute expression
+
+
+public int computeExpression(String s)
+{
+  if(s == null || s.isEmpty())
+  {
+    return Integer.MIN_VALUE;
+  }
+
+  char[] tokens = s.toCharArray();
+  Stack<Integer> values = new Stack<>();
+  Stack<Character> ops = new Stack<>();
+
+  for(int i = 0; i < tokens.length; i++)
+  {
+    if(tokens[i] == ' ')
+    {
+      continue;
+    }
+    if(tokens[i] >= '0' && tokens[i] <= '9')
+    {
+      StringBuilder sb = new StringBuilder();
+      while(i < tokens.length && tokens[i] >= '0' && tokens[i] <= '9')
+      {
+        sb.append(tokens[i]);
+      }
+      values.push(Integer.parseInt(sb.toString()));
+    }
+
+    else if(tokens[i] == '(')
+    {
+      ops.push(token[i]);
+    }
+
+    else if(tokens[i] == ')')
+    {
+      while(ops.peek() != '(')
+      {
+        values.push(applyOp(ops.pop(), values.pop(), values.pop()));
+      }
+      ops.pop();
+    }
+
+    else if(tokens[i] == '+' || tokens[i] == '-' || tokens[i] == '*' || tokens[i] == '/')
+    {
+      while(!ops.Empty() && hasPrecedence(tokens[i], ops.peek()))
+      {
+        values.push(applyOps(ops.pop(), values.pop(), values.pop()));
+      }
+      ops.push(tokens[i]);
+    }
+  }
+  while(!ops.Empty())
+  {
+    values.push(applyOps(ops.pop(), values.pop(), values.pop()));
+  }
+  return values.pop();
+
+  }
+
+}

@@ -1,0 +1,37 @@
+// If the average length of verbs is m and array length is n, then the time is O(n*m).
+
+public List<String> findAnagramsInDictionary(String[] dict, String word)
+{
+// null checks
+
+  List<List<String>> result = new ArrayList<>();
+  HashMap<String, ArrayList<String>> map = new HashMap<>();
+  for(String s : dict)
+  {
+    String sorted = sort(s);
+
+    if(map.containsKey(sorted))
+    {
+      map.get(sorted).add(s);
+    }
+    else
+    {
+      List<String> l = new ArrayList<>();
+      l.add(s);
+      map.put(sorted, l);
+    }
+  }
+
+  result.addAll(map.values());
+
+  for(String k : map.keySet())
+  {
+    if(k.equals(sort(word)))
+    {
+      return map.get(k);
+    }
+  }
+
+
+
+}

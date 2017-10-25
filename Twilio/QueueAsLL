@@ -1,0 +1,52 @@
+// Queue as Linked List
+
+class Q_Node{
+  int key;
+  Q_Node next;
+  public Q_Node(int k)
+  {
+    this.key = k;
+    this.next = null;
+  }
+
+}
+
+class Queue_LL
+{
+  Q_Node front;
+  Q_Node rear;
+
+  public Queue_LL()
+  {
+    this.front = this.rear = null;
+  }
+
+  public void enQueue(int key)
+  {
+    Q_Node n = new Q_Node(key);
+
+    if(this.rear = null)
+    {
+      this.front = this.rear = n;
+    }
+    this.rear.next = n;
+    this.rear = n;
+  }
+
+  public Q_Node dequeue()
+  {
+    if(this.front == null)
+    {
+      return null;
+    }
+    Q_Node n = this.front;
+    this.front = this.front.next;
+
+    if(this.front == null)
+    {
+      this.rear = null;
+    }
+    return n;
+  }
+
+}

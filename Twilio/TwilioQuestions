@@ -1,3 +1,8 @@
+implement a function called tripleRotate, which "rotates" all subsequent sets of 3 elements in an array, when the algorithm
+for one rotation is as follows:
+Given the triplet ['a', 'b', 'c'], the 1st element ('a') is moved to index 1, the 2nd element ('b') is moved to index 2 and the
+3rd element ('c') is moved to index 0. Thus, one rotation of the given triplet results in the new array ['c', 'a', 'b'].
+
 Given a word and a dictionary, find the anagrams that exist in the dictionary.
 Simple coding challenge for a dice game
 String abbreviation apple-> a3e
@@ -25,11 +30,7 @@ At the end is an coding problem to determine if a ransom letter can be composed 
 
 
 Build an API for a shopping cart
-implement a function called tripleRotate, which "rotates" all subsequent sets of 3 elements in an array, when the algorithm
-for one rotation is as follows:
 
-Given the triplet ['a', 'b', 'c'], the 1st element ('a') is moved to index 1, the 2nd element ('b') is moved to index 2 and the
-3rd element ('c') is moved to index 0. Thus, one rotation of the given triplet results in the new array ['c', 'a', 'b'].
 
 Explain how running multiple tasks on a single processor core works.
 What are the runtime complexities for reads and inserts on arrays, hash maps and linked lists? What are the best and worst

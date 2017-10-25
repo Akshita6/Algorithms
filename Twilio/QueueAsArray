@@ -1,0 +1,68 @@
+//Queue using array
+
+class Queue{
+
+  private int front, rear, size, capacity;
+  private int[]arr;
+
+  public Queue(int cap)
+  {
+    capacity = cap;
+    arr = new int[capacity];
+    front = this.size = 0;
+    rear = arr.length - 1;
+  }
+
+  public boolean isEmpty(Queue q)
+  {
+    return q.size() == 0;
+  }
+
+  public boolean isFull(Queue q)
+  {
+    return q.size() == this.capacity;
+  }
+
+  public void enqueue(int item)
+  {
+    if(isFull())
+    {
+      return;
+    }
+    this.rear = (this.rear + 1) % capacity;
+    this.arr[rear] = item;
+    this.size++;
+  }
+
+  public int dequeue()
+  {
+    if(isEmpty())
+    {
+      return -1;
+    }
+    int item = arr[front];
+    front = (front + 1) % capacity;
+    size--;
+    return item;
+  }
+
+  public int front()
+  {
+    if(isEmpty())
+    {
+      return -1;
+    }
+    return arr[front];
+  }
+
+  public int rear()
+  {
+    if(isEmpty())
+    {
+      return -1;
+    }
+    return arr[rear];
+  }
+
+
+}
