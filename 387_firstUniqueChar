@@ -1,0 +1,81 @@
+/*
+ * Find first non-repeated character in a String
+ *
+ */
+ class Solution {
+    public int firstUniqChar(String s) {
+
+        if(s == null || s.isEmpty())
+        {
+            return -1;
+        }
+
+        Map<Character, Integer> map = new LinkedHashMap<Character, Integer>();
+        Set<Character> set = new HashSet<>();
+        for(int i = 0; i < s.length(); i++)
+        {
+            char c = s.charAt(i);
+            if(!set.contains(c))
+            {
+                set.add(c);
+                map.put(c, i);
+            }
+            else
+            {
+                if(map.get(c) != null)
+                {
+                    map.remove(c);
+                }
+            }
+        }
+        return map.size() == 0 ? -1 : map.entrySet().iterator().next().getValue();
+    }
+}
+-----------------------------------------------------------
+
+class Solution {
+
+  public static String findFirstNonRepeatedCharacter(String s)
+  {
+    if(s == null || s.isEmpty())
+    {
+      return null;
+    }
+
+    HashMap<Character, Integer> map = new HashMap<>();
+
+    LinkedHashSet<Character> set = new LinkedHashSet<>();
+    for(Character ch : s.toCharArray())
+    {
+
+       if(map.containsKey(ch))
+       {
+         map.put(ch, map.get(ch) + 1);
+         set.remove(ch);
+       }
+       else
+       {
+         map.put(ch, 1);
+         set.add(ch);
+       }
+    }
+    Iterator<Character> it = set.iterator();
+    if(it.hasNext())
+    {
+      return String.valueOf(it.next());
+    }
+
+    return null;
+  }
+
+  public static void main(String[] args) {
+    ArrayList<String> strings = new ArrayList<String>();
+        strings.add("hello"); //"h"
+        strings.add("abcdabcde"); //"e"
+        strings.add("aabbcc"); //""
+
+        for (String s : strings) {
+            System.out.println(findFirstNonRepeatedCharacter(s));
+        }
+  }
+}
