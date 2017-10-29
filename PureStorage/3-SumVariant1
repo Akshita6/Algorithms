@@ -15,7 +15,7 @@ public List<List<Integer>> 3SumVariant(int a1[], int a2[], int a3[], int sum)
     {
       if(set.contains(sum - (a2[i] + a3[j])))
       {
-        result.add(Arrays.asList(sum, a2[i], a3[i]));
+        result.add(Arrays.asList(sum, a2[i], a3[j]));
       }
     }
   }

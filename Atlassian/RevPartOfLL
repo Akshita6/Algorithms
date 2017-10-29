@@ -1,0 +1,80 @@
+// Reverse part of linked list
+
+
+class Node{
+    int value;
+    Node next;
+
+    public Node(int val){
+        value = val;
+    }
+
+}
+
+public class ReversePart{
+
+    public Node n = null;
+    public Node reverse(Node head, int m, int n)
+    {
+        if(head == null)
+        {
+            return null;
+        }
+
+        Node curr = head;
+        Node prev = null;
+        Node before_m_node = null;
+        Node m_node = null;
+        Node after_n_node = null;
+
+        int count = 0;
+
+        while(count++ < m)
+        {
+            prev = curr;
+            curr = curr.next;
+        }
+
+        m_node = curr;
+        before_m_node = prev;
+        //prev = curr;
+        //curr = curr.next;
+        while(count++ <= n)
+        {
+            Node temp = curr.next;
+            curr.next = prev;
+            prev = curr;
+            curr = temp;
+        }
+        after_n_node = curr.next;
+        curr.next = prev;
+        m_node.next = after_n_node;
+
+        if(before_m_node != null)
+        {
+            before_m_node.next = curr;
+            return head;
+        }
+        else{
+            return curr;
+        }
+    }
+
+    public static void main(String[] args)
+    {
+        ReversePart r = new ReversePart();
+        r.n = new Node(1);
+        r.n.next = new Node(2);
+        r.n.next.next = new Node(3);
+        r.n.next.next.next = new Node(4);
+        r.n.next.next.next.next = new Node(5);
+
+        r.n = r.reverse(r.n, 2, 4);
+        System.out.println("Printing after reverse");
+        while(r.n != null)
+        {
+            System.out.print(r.n.value + "->");
+            r.n = r.n.next;
+        }
+    }
+}

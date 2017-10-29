@@ -1,0 +1,79 @@
+for (int i = 0; i < n; i++)
+        {
+            for (int j = i + 1; j < n; j++)
+            {
+                if (names[i].compareTo(names[j])>0)
+                {
+                    temp = names[i];
+                    names[i] = names[j];
+                    names[j] = temp;
+                }
+            }
+        }
+
+
+
+
+        import java.util.Scanner;
+
+public class NameBubbleSort {
+
+    /*
+     * function to find whether first string comes before second one in
+     * alphabetical order
+     */
+    static boolean lessThan(String s1, String s2) {
+        boolean flag = false;
+        int i, lim;
+        String shorter;
+        // converting strings to lower case
+        String first = s1.toLowerCase(), second = s2.toLowerCase();
+        // finding shorter string setting iteration limit to its length
+        if (first.length() <= second.length()) {
+            shorter = first;
+            lim = first.length();
+        } else {
+            shorter = second;
+            lim = second.length();
+        }
+        // comparing successively each character one by one if they are same
+        for (i = 0; i < lim; i++)
+            if (first.charAt(i) != second.charAt(i)) {
+                if (first.charAt(i) < second.charAt(i))
+                    flag = true;
+                // breaks the loop since the characters are unequal
+                break;
+            }
+        // condition if one name is contained in another
+        // eg. Peter Steve and Peter Stevens
+        if (i == lim && first == shorter)
+            flag = true;
+        return flag;
+    }
+
+    public static void main(String[] args) {
+
+        Scanner in = new Scanner(System.in);
+        String t;
+        String[] name = new String[20];
+        System.out.println("Enter 20 names: ");
+        for (int i = 0; i < 20; i++)
+            name[i] = in.nextLine();
+        for (int i = 0; i < 20; i++)
+            for (int j = 0; j < 19 - i; j++)
+                // compares two adjacent strings and exchanges them if not in
+                // correct order
+                if (lessThan(name[j], name[j + 1])) {
+                    t = name[j];
+                    name[j] = name[j + 1];
+                    name[j + 1] = t;
+                }
+        // printing the names
+        for (String i : name) {
+            System.out.println(i);
+        }
+        in.close();
+
+    }
+
+}
