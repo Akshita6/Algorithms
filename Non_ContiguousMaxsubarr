@@ -1,0 +1,18 @@
+max_subarray non-contiguous
+//[5, 3, 6, 2, 1]
+public int maxSumSubseq(int []arr)
+{
+
+  int incl = arr[0];
+  int excl = 0;
+  int excl_new = 0;
+  for(int i = 1; i < arr.length;i++)
+  {
+    excl_new = Math.max(incl, excl);
+    incl = excl + arr[i];
+    excl = excl_new;
+
+  }
+  return Math.max(incl, excl);
+
+}

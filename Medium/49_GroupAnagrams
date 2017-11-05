@@ -1,0 +1,50 @@
+import java.util.*;
+class Solution {
+    public List<List<String>> groupAnagrams(String[] strs) {
+
+        List<List<String>> result = new ArrayList<>();
+        Map<String, List<String>> map = new HashMap<>();
+
+        for(String word : strs)
+        {
+            char[] ch = word.toCharArray();
+            Arrays.sort(ch);
+            word = new String(ch);
+            if(!map.containsKey(word))
+            {
+                map.put(word, null);
+            }
+        }
+
+        for(String word : strs){
+
+            char[] ch = word.toCharArray();
+            Arrays.sort(ch);
+            String sortedWord = new String(ch);
+
+            if(map.containsKey(sortedWord))
+            {
+                List<String> list = map.get(sortedWord);
+                if(list == null)
+                {
+                    map.put(sortedWord, new ArrayList<>(Arrays.asList(word)));
+
+                }
+                else{
+                    list.add(word);
+                    map.put(sortedWord, list);
+                }
+            }
+
+        }
+
+        Collection<List<String>> values = map.values();
+
+        for(List<String> l : values)
+        {
+            result.add(l);
+        }
+
+        return result;
+    }
+}

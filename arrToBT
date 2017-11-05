@@ -1,0 +1,60 @@
+// Array to BFS traversal
+/*
+ *Write a function that given an array representation of a binary tree will convert it into a typical tree format.
+The following is a visual representation of expected input and output:
+Input: 7 3 19 2 4 8 10
+Output:
+      7
+    /   \
+   3     19
+  / \   / \
+ 2   4 8  10
+ */
+
+ class Solution{
+
+    public Node getBinaryTree(int[] arr)
+    {
+      if(arr == null || arr.length == 0)
+      {
+        return null;
+      }
+
+      return getBinaryTree(new Node(arr[0]), arr, 0, arr.length);
+    }
+
+    public Node getBinaryTree(Node root, int[] arr, int start, int end)
+    {
+      int left = 2 * start + 1;
+      int right = 2 * start + 2;
+
+      if(left > end || right > end)
+      {
+        return null;
+      }
+
+      if(root == null)
+      {
+        root = new Node(arr[start]);
+      }
+
+      if(root.left == null && root.right == null)
+      {
+        if(left < end)
+        {
+          root.left = new Node(arr[left]);
+        }
+        if(right < end)
+        {
+          root.right = new Node(arr[right]);
+        }
+      }
+
+      getBinaryTree(root.left, arr, left, end);
+      getBinaryTree(root.right, arr, right, end);
+
+      return root;
+    }
+
+
+ }

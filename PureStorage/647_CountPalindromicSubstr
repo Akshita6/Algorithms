@@ -3,6 +3,7 @@ O(1)
 
 class Solution {
     int count = 0;
+    HashSet<String> set = new HashSet<String>();
     public int countSubstrings(String s) {
 
         if(s == null || s.isEmpty())
@@ -29,6 +30,8 @@ class Solution {
             i--;
             j++;
             count++;
+            set.add(s.substring(i + 1, j));
         }
+
     }
 }

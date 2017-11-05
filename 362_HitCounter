@@ -1,0 +1,43 @@
+// Design hit counter
+/*
+design a counter (to count the number of visits for a website).
+
+counter.visit(timestamp) : at t = timestamp is in terms of seconds, there is a visit
+counter.getVisits(timestamp): return the number of visits in past 5 minutes.
+
+counter.visit(1) : at t = 1
+counter.visit(1): at t =1
+counter.visit(1) : at t = 1
+counter.visit(1): at t =1
+multi-millisons calls 
+counter.visit(1): at t = 1
+
+counter.visit(300): at t = 300
+counter.getVisits(300): return the number of visits b/w in past 5 minutes, which means b/w t=1 to t=300, return 2.
+counter.getVisits(400): past 5 mins (300 seconds), bw (101, 400) return 1.
+*/
+
+public class Counter{
+
+  Queue<Integer> q = new LinkedList<>();
+
+  public Counter(Queue<Integer> q)
+  {
+    this.q = q;
+  }
+
+  public void hit(int t)
+  {
+    q.offer(t);
+  }
+
+  public int getHits(int t)
+  {
+    if(!q.isEmpty() && t - q.peek() >= 300)
+    {
+      q.poll();
+    }
+    return q.size();
+  }
+
+}

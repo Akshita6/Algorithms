@@ -1,0 +1,73 @@
+// implement a producer - consumer queue, you can have multiple consumers consuming at the same time. but you can only one producer to produce.
+public class Producer extends Thread
+{
+
+    private Queue<Integer> q;
+    private int num = 0;
+    public Producer(Queue q)
+    {
+        this.q = q;
+    }
+
+    @Override
+    public void run()
+    {
+
+        while(true)
+        {
+            synchronized(q)
+            {
+                while(!q.isEmpty())
+                {
+                    q.wait();
+                }
+
+                q.add(num++);
+                q.notifyAll();
+            }
+
+        }
+    }
+
+}
+
+public class Consumer extends Thread{
+
+    private Queue<Integer> q;
+
+    public Consumer(Queue q)
+    {
+        this.q = q;
+    }
+
+    @Override
+    public void run()
+    {
+        while(true)
+        {
+            synchronized(q)
+            {
+                while(q.isEmpty())
+                {
+                    q.wait();
+                }
+                q.remove();
+                q.notifyAll();
+            }
+        }
+    }
+
+}
+
+public class Main{
+
+
+    public static void main(String[] args)
+    {
+        Queue<Integer> q = new LinkedList<>();
+        Producer p = new Producer(q);
+        Consumer c1 = new Consumer(q);
+        Consumer c2 = new Consumer(q);
+        Consumer c3 = new Consumer(q);
+    }
+}
