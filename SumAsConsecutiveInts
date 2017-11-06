@@ -1,0 +1,17 @@
+for(int i = 1; i <= num / 2; i++)
+        {
+            sum = 0;
+            for(int j = i; j <= (num / 2) + 1; j++){
+                sum += j;
+                if(sum == num)
+                {
+                    count++;
+                    break;
+
+                }
+                if(sum > num)
+                {
+                    break;
+                }
+            }
+        }

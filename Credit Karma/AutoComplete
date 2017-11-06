@@ -1,0 +1,96 @@
+//Auto complete
+
+class Trie{
+
+  protected Map<Character, Trie> children;
+  protected String value;
+  protected boolean isWord = false;
+
+  public Trie()
+  {
+    this(null);
+  }
+
+  private Trie(String value)
+  {
+    children = new HashMap<>();
+    this.value = value;
+  }
+
+  public Collection<String> autoComplete(String prefix)
+  {
+    Trie node = this;
+    for(Character c : prefix.toCharArray())
+    {
+      if(!node.children.containsKey(c))
+      {
+        return "";
+      }
+      node = node.children.get(c);
+    }
+    return node.allPrefixes();
+  }
+
+  public Collection<String> allPrefixes()
+  {
+    Collection<String> result = new ArrayList<>();
+    if(this.isWord)
+    {
+      result.add(this.value);
+    }
+
+    for(Entry<Character, Trie> e : map.entrySet())
+    {
+      Trie n = e.getValue();
+      Collection<String> childPrefixes = n.allPrefixes();
+      result.addAll(childPrefixes);
+    }
+    return result;
+  }
+
+  public String find(String word)
+  {
+    Trie node = this;
+    for(Character c : word.toCharArray())
+    {
+      if(!node.children.containsKey(c))
+      {
+        return "";
+      }
+      node = node.children.get(c);
+    }
+    return node.value;
+  }
+
+  public void insert(String word)
+  {
+    if(word == null)
+    {
+      throw new IllegalArgumentException("Value cannot be null");
+    }
+    Trie n = this;
+    for(Character c : word.toCharArray())
+    {
+      if(!n.children.containsKey(c))
+      {
+        n.add(c);
+      }
+      n = n.children.get(c);
+    }
+    n.isWord = true;
+  }
+
+  public void add(char c)
+  {
+    String val = "";
+    if(this.value == null)
+    {
+      val = Character.toString(c);
+    }
+    else{
+      val = this.value + c;
+    }
+    children.put(c, new Trie(val));
+  }
+
+}

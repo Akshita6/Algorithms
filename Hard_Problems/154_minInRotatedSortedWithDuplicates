@@ -1,0 +1,41 @@
+class Solution {
+    public int findMin(int[] nums) {
+        if(nums == null || nums.length == 0)
+        {
+            return -1;
+        }
+        return binarySearch(nums, 0, nums.length - 1);
+    }
+
+
+    public int binarySearch(int[] nums, int low, int high)
+    {
+        if(low > high)
+        {
+            return nums[0];
+        }
+
+        if(high == low + 1)
+        {
+            return Math.min(nums[low], nums[high]);
+        }
+
+        int mid = low + (high - low) / 2;
+
+        if(nums[high] > nums[low])
+        {
+            return nums[low];
+        }
+        else if(nums[low] == nums[high])
+        {
+            return binarySearch(nums, low + 1, high);
+        }
+        else if(nums[low] <= nums[mid])
+        {
+            return binarySearch(nums, mid, high);
+        }
+        else{
+            return binarySearch(nums, low, mid);
+        }
+    }
+}
