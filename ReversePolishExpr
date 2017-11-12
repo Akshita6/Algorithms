@@ -1,0 +1,56 @@
+
+/**
+ * Implement a reverse polish notation calculator, taking a list of strings (either operators or operands) and returning the result of the calculation.
+ * Reverse Polish Notation is a mathematical format in which the operator always follows its operands.
+ * For example, 4 + 2 might be written 4 2 +, and (8/2) * 3 might be written as 8 2 / 3 * or 3 8 2 / *
+ * Sample interface in Java. Expects to throw IllegalArgumentException if the input is bad and ArithmeticException if the input requests an invalid calculation
+ * ["2", "8", "3", "/", "*"]
+ * [12] b = 3, a = 4, ]
+ * ["2", "3", "1", "+"] => ["2", "4"]
+ * ["+"]
+ */
+public double rpn(List<String> inputs) throws IllegalArgumentException, ArithmeticException {
+    // Code here
+
+    if(inputs == null || inputs.size() == 0)
+    {
+        return new Double();
+    }
+
+    Stack<String> stack = new Stack<>();
+    String ops = "+-/*";
+    for(String i : inputs)
+    {
+        if(!ops.contains(i))
+        {
+            stack.push(i);
+        }
+        else{
+
+            int a = Double.parseDouble(stack.pop());
+            int b = Double.parseDouble(stack.pop());
+
+            switch(i)
+            {
+                case "+":
+                    stack.push(String.valueOf(a + b));
+                    break;
+                case "-":
+                    stack.push(String.valueOf(b - a));
+                    break;
+                case "*":
+                    stack.push(String.valueOf(a * b));
+                    break;
+                case "/":
+                    stack.push(String.valueOf(Double.parseDouble(b / a));
+                    break;
+            }
+
+        }
+
+    }
+    if(stack.size() > 1 || ops.contains(stack.peek())){
+        throw new IllegalArgumentException("Invalid arguments");
+    }
+    return Double.parseDouble(stack.pop());
+}

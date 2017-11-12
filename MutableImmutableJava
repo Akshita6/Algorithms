@@ -1,0 +1,32 @@
+public class MutableClass {
+
+ private int value;
+
+ public MutableClass(int aValue) {
+  value = aValue;
+ }
+
+ public void setValue(int aValue) {
+  value = aValue;
+ }
+
+ public getValue() {
+  return value;
+ }
+
+}
+
+public class ImmutableClass {
+
+ private final int value;
+ // changed the constructor to say Immutable instead of mutable
+ public ImmutableClass (final int aValue) {
+  //The value is set. Now, and forever.
+  value = aValue;
+ }
+
+ public final getValue() {
+  return value;
+ }
+
+}
