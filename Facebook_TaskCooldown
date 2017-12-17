@@ -1,0 +1,16 @@
+private static int taskSchedule1(int[] tasks, int cooldown) {
+  	if (tasks == null || tasks.length == 0)    return 0;
+  	HashMap<Integer, Integer> map = new HashMap<>();
+  	int slots = 0;
+  	for (int task : tasks) {
+        //if we need to wait for the cooldown of the same task, just update the slots
+  	    if (map.containsKey(task) && map.get(task) > slots)
+  	        slots = map.get(task);
+        //update the time slot to the time when curr task can be done again
+  	    map.put(task, slots + 1 + cooldown);
+  	    slots++; //important!! update the used 1 slot of curr task
+  	}
+  	return slots;
+}
+
+https://github.com/tongzhang1994/Facebook-Interview-Coding
